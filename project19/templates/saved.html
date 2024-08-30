@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+Saved
+{% endblock title %}
+
+{% block body %}
+<h1>Welcome to Saved Page {{UO.username}}</h1>
+{% for tweet in tweets %}
+<div class="card" style="width: 18rem; display: inline-block;" >
+    <img src="{{tweet.tweet.photo.url}}" class="card-img-top" alt="..." style="width: 300px; height: 200px;">
+    <div class="card-body">
+      <h5 class="card-title">{{tweet.tweet.username.username}}</h5>
+      <p class="card-text">{{tweet.tweet.text}}</p>
+      <a href="{% url 'save' tweet.tweet.pk %}"><i class="fa fa-bookmark" aria-hidden="true"></i></a>
+    </div>
+  </div>
+{% endfor %}
+{% endblock body %} 

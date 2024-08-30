@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Home {% endblock title %}
+
+{% block body %}
+<h1>Welcome to Home Page {{UO.username}}</h1>
+{% for tweet in tweets %}
+<div class="card" style="width: 18rem; display: inline-block;" >
+    <img src="{{tweet.photo.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{tweet.username.username}}</h5>
+      <p class="card-text">{{tweet.text}}</p>
+      {% if UO.username == tweet.username.username %}
+      <a href="{% url 'update' tweet.pk %}" class="btn btn-primary">Update</a>
+      <a href="{% url 'delete' tweet.pk %}" class="btn btn-danger">Update</a>
+      {%else%}
+      <a href="{% url 'save' tweet.pk %}">
+      <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+      </a>
+        {% endif %}
+    </div>
+  </div>
+{% endfor %}
+{% endblock body %} 

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}register{% endblock title %}
+
+{% block body %}
+
+<center>
+    <h1>register</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ERFO.as_p}}
+        <input type="submit" value="Register">
+    </form>
+</center>{% endblock body %}

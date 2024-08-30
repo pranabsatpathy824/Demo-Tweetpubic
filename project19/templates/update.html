@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}
+update
+{% endblock title %}
+
+{% block body %}
+<center>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="text">Text for the Tweet</label>
+        <textarea name="text" id="text">{{TO.text}}</textarea> <br><br>
+        <label for=""> Image</label>
+        <input type="file" name="photo" id="photo"><br><br>
+        <input type="submit" value="Update">
+    </form>
+</center>
+{% endblock body %}
+\end{code}

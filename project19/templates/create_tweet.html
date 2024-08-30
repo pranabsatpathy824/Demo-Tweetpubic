@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+create_tweet
+{% endblock title %}
+
+{% block body %}
+<center>
+    <h1>create_tweet now....!</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ETFO.as_p}}
+        <input type="submit" value="Create a Tweet">
+    </form>
+</center>
+{% endblock body %}
